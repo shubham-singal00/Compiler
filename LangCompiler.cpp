@@ -26,9 +26,9 @@ using namespace std;
 #define ff first
 #define FastIO ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define pb push_back
-
-#include "Table.hpp"
 #include "Buffer.hpp"
+#include "Table.hpp"
+#include "DFA.hpp"
 #include "Scanner.hpp"
  
 #define FOR(i, a, b) for(long long i=a;i<b;i++)
