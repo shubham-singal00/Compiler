@@ -57,6 +57,44 @@ class Buffer
 		string s(str);
 		return s;
 	}
+
+	void GetToToken()
+	{
+		Mark();
+		bool seen = false;
+		while(true)
+		{
+			char c = ReadNextChar();
+			if(c == ' ' || c == '\n' ||c == '\t' || c == '\r')
+			{
+				seen = true;
+			}
+			else
+			{
+				if(seen == true)
+				{
+					Reset();
+					return;
+				}
+			}
+			Mark();
+		}
+	}
+
+	string GetTillNonAlpha()
+	{
+		Mark();
+		int i = 0;
+		char str[100];
+		char c = ReadNextChar();
+		while(isalpha(c))
+		{
+			str[i++] = c;
+			c = ReadNextChar();
+		}
+		str[i] = '\0';
+		return string(str);
+	}
 };
 
 #endif

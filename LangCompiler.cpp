@@ -29,6 +29,7 @@ using namespace std;
 #include "Buffer.hpp"
 #include "Table.hpp"
 #include "DFA.hpp"
+#include "Token.hpp"
 #include "Scanner.hpp"
  
 #define FOR(i, a, b) for(long long i=a;i<b;i++)

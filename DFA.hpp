@@ -9,7 +9,6 @@ public:
 	US<int> final_states;
 	Table m_table;
 	
-	int m_tok_len;
 
 	void Init(int init_state, int dead_state, US<int> all_states, US<int> final_sts, Table table )
 	{
@@ -23,6 +22,7 @@ public:
 
 	int CheckTransition(Buffer *buf)
 	{
+		int m_tok_len = 0;
 		bool found_final = false;
 		curr_s = init_s;
 		(*buf).Mark();
@@ -53,6 +53,7 @@ public:
 		}
 		else
 		{
+			cout << "here we are" <<endl;
 			return -1;
 		}	
 
