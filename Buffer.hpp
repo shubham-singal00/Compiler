@@ -60,7 +60,7 @@ class Buffer
 
 	void GetToToken()
 	{
-		Mark();
+
 		bool seen = false;
 		while(true)
 		{

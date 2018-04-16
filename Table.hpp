@@ -1,17 +1,19 @@
 #ifndef TABLE
 #define TABLE
 
+#define MAXST 10
+#define CHARS 128
 class Table
 {
 public:
 
-	int m_state[10][128];
+	int m_state[MAXST][CHARS];
 
 	Table()
 	{
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < MAXST; ++i)
 		{
-			for (int j = 0; j < 128; ++j)
+			for (int j = 0; j < CHARS; ++j)
 			{
 				m_state[i][j] = -1;
 			}
@@ -22,7 +24,7 @@ public:
 	{
 		if(except == true)
 		{
-			for (int j = 0; j < 128; ++j)
+			for (int j = 0; j < CHARS; ++j)
 			{
 				m_state[first_state][j] = fin_state;
 			}			
@@ -36,8 +38,10 @@ public:
 		{
 			for(auto it = trans.begin(); it != trans.end(); it++)
 			{
+				// cout << (char)*it << " " << (int)*it << " " ;
 				m_state[first_state][(int)*it] = fin_state;
 			}		
+			// cout << endl << endl << endl << endl;
 		}
 		// for(int i = 0; i < 10; i++)
 		// {

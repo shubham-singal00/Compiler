@@ -29,13 +29,13 @@ public:
 		while(true)
 		{
 			char c  = (*buf).ReadNextChar();
-			cout << "first " << c << endl;
+			// cout << "first " << c << endl;
 			curr_s = m_table.ReturnState(curr_s, (int)c);
-			cout <<"second " << curr_s << endl; 
+			// cout <<"second " << curr_s << endl; 
 			if(curr_s == dead_s)
 			{
-				cout << "third " << found_final <<endl;
-				cout << "fourth " << m_tok_len;
+				// cout << "third " << found_final <<endl;
+				// cout << "fourth " << m_tok_len;
 				break;
 			}	
 
