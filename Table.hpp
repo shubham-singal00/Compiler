@@ -51,6 +51,7 @@ public:
 		// 	}
 		// 	cout << endl << endl << endl << endl;
 		// }
+		//Faaltu ka commit
 	}
 
 	int ReturnState(int cur_state, char transition)
