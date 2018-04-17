@@ -8,7 +8,7 @@ class Buffer
 	ifstream fin;
 	int mark;
 	bool EOFReach = false;
-	int line;
+	int line = 0;
 
 	Buffer(string file)
 	{
@@ -33,6 +33,10 @@ class Buffer
 
 		if(fin.get(c))
 		{
+			if( c == '\n')
+			{
+				line++;
+			}
 			return c;
 		}
 		else
@@ -67,6 +71,7 @@ class Buffer
 			char c = ReadNextChar();
 			if(c == ' ' || c == '\n' ||c == '\t' || c == '\r')
 			{
+				cout << c;
 				seen = true;
 			}
 			else
@@ -74,8 +79,10 @@ class Buffer
 				if(seen == true)
 				{
 					Reset();
+					cout << endl;
 					return;
 				}
+				cout << c ;
 			}
 			Mark();
 		}

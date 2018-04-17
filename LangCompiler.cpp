@@ -43,7 +43,12 @@ int main(int argc, char *argv[])
 	}
 
 	string fileName( argv[1] );
-	Scanner::LangScanner(fileName);
+	Data tokens = Scanner::LangScanner(fileName);
+
+	for (int i = 0; i < tokens.tok.size(); ++i)
+	{
+		cout << tokens.tok[i].m_name << " " << tokens.tok[i].m_value << " " << tokens.tok[i].m_line << endl;
+	}
 	
 	return 0;
 }
