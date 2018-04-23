@@ -30,25 +30,31 @@ using namespace std;
 #include "Table.hpp"
 #include "DFA.hpp"
 #include "Token.hpp"
+#include "paser.hpp"
 #include "Scanner.hpp"
  
 #define FOR(i, a, b) for(long long i=a;i<b;i++)
 
-int main(int argc, char *argv[])
+
+int main()
 {
-	if(argc <= 1)
-	{
-		cout << "error" << endl;
-		return 1;
-	}
+	// if(argc <= 1)
+	// {
+	// 	cout << "error" << endl;
+	// 	return 1;
+	// }
 
-	string fileName( argv[1] );
-	Data tokens = Scanner::LangScanner(fileName);
+	// string fileName( argv[1] );
+	// Data tokens = Scanner::LangScanner(fileName);
 
-	for (int i = 0; i < tokens.tok.size(); ++i)
-	{
-		cout << tokens.tok[i].m_name << " " << tokens.tok[i].m_value << " " << tokens.tok[i].m_line << endl;
-	}
-	
+	// for (int i = 0; i < tokens.tok.size(); ++i)
+	// {
+	// 	cout << tokens.tok[i].m_name << " " << tokens.tok[i].m_value << " " << tokens.tok[i].m_line << endl;
+	// }
+	Parser P("WHILE ( DIGIT > DIGIT ) { DIGIT + DIGIT ; } WHILE ( ID > ID ) { IF ( ID > ID ) { ID = ID + DIGIT ; } ELSE { ID = ID + DIGIT ; } } ");
+	// P.printcsv();
+	// string val = "r32"; 
+	// int num = stoi( string(val.begin()+1, val.end()));
+	// cout << num << endl;
 	return 0;
 }
