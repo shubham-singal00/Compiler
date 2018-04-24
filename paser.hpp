@@ -3,11 +3,11 @@
 #include "parsetree.hpp"
 #include "productionsave.hpp"
 #include "Token.hpp"
-const int N = 1e3;
 #include <string> 
 #include <map>
 map < string , int> nmtocol;
 
+const int N = 1e3;
 
 string movestuff[N][N];
 
@@ -22,7 +22,28 @@ public:
 	string col[N];
 	map <string,bool> gotoornot;
 	string colid[N];
+
 	int prodn[N];
+	string removesapces(string &lel)
+	{
+		string ret = "";
+		for( int  i = 0  ; i < lel.length() ; i++)
+		{
+
+			if(  lel[i] >= 'a' && lel[i] <= 'z' ){
+				ret += lel[i];
+			} else
+			if(  lel[i] >= 'A' && lel[i] <= 'Z' ){
+				ret += lel[i];
+			} else
+			if(  lel[i] >= '0' && lel[i] <= '9' ){
+				ret += lel[i];
+			} else
+			if(lel[i] >= 0 && lel[i] <= 127)
+				ret += lel[i];
+		}
+		return ret;
+	}
 	std::vector<std::string> getNextLineAndSplitIntoTokens(std::istream& str)
 	{
 	    std::vector<std::string>   result;
@@ -35,7 +56,9 @@ public:
 
 		    while(std::getline(lineStream,cell, ','))
 		    {
-		        result.push_back(cell);
+		    	// cout << " " << removesapces(cell) << endl;
+		        result.push_back(removesapces(cell));
+
 		    }
 		    if (!lineStream && cell.empty())
 		    {
@@ -133,11 +156,15 @@ public:
 				STACKList.push(stoi(movestuff[toppostack][next]));
 				continue;
 			}
+			cout << "Mai tummhe chunta hu" << endl;
 			cout << loookahead << " " << toppostack << " " << next <<  endl;
 			// Read some mvoe[][] s() or r()
 			string next_move = movestuff[toppostack][next];
 			cout << next_move << endl; 
-			if(next_move == "")
+			next_move = removesapces(next_move);
+			for(int i =0 ; i < next_move.length();i++)
+				cout << int(next_move[i]) << " "; cout << endl;
+			if(next_move == "" || next_move == " ")
 			{
 				cout << endl << endl;
 				if( errormode() == false){
@@ -155,6 +182,9 @@ public:
 			if(next_move[0] == 's')
 			{
 				//Handle shift
+
+				cout <<" SSTIO " << string(next_move.begin()+1, next_move.end()) << endl;
+
 				int num = stoi( string(next_move.begin()+1, next_move.end()));
 				//Shift is when consume input literal and then 
 				// push production 'x's  on the -num
@@ -181,6 +211,8 @@ public:
 				}
 				auto newtop = STACKList.top() + 1;
 				string next_move = movestuff[newtop][nmtocol[used_rule.ff]];
+				cout << "STOIBOI " << endl; 
+				cout << stoi(movestuff[newtop][nmtocol[used_rule.ff]]) << endl;
 				if(next_move == "")
 				{
 					cout << endl << endl;

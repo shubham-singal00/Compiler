@@ -1,21 +1,30 @@
+startSym -> funcs
 startSym -> program
+funcs -> funcs func
+funcs -> func
+func -> TYPE text '(' ')' '{' program '}'
 program -> program construct
 program -> construct
-program -> list
+program -> stmts
 construct -> block
 construct -> WHILE '(' bool ')' block
 construct -> IF '(' bool ')' block
-construct -> IF '(' bool ')' block ELSE block
-block -> '{' list '}' 
-list -> stat
-list ->	list stat
-list -> list error 
-stat -> ';'
-stat ->	expr ';'
-stat -> dec ';'
-stat -> text '=' expr ';'
-stat -> dec '=' expr ';' 
-dec -> TYPES text
+construct -> IF '(' bool ')' block ELSE block 
+block -> '{' stmts '}'
+stmts -> stmt
+stmts -> stmts stmt
+stmts -> stmt error '\n'
+stmt -> ';'
+stmt -> expr ';'
+stmt -> dec ';'
+stmt -> text '=' expr ';'
+stmt -> dec '=' expr ';'
+stmt -> PRINT1 '(' string ')' ';'
+stmt -> SCAN1 '(' ID ')' ';'
+stmt -> construct
+string -> ID string
+string -> ID
+dec -> TYPE text
 bool -> expr REL_OPT expr
 bool -> bool OR bool
 bool -> bool AND bool

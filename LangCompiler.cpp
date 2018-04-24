@@ -46,12 +46,20 @@ int main()
 
 	// string fileName( argv[1] );
 	// Data tokens = Scanner::LangScanner(fileName);
+	//
+/* {int a 10;}
 
+
+while(a<=20){
+	a=a+2;
+	b=b-1;
+}
+*/
 	// for (int i = 0; i < tokens.tok.size(); ++i)
 	// {
 	// 	cout << tokens.tok[i].m_name << " " << tokens.tok[i].m_value << " " << tokens.tok[i].m_line << endl;
 	// }
-	Parser P("WHILE ( DIGIT > DIGIT ) { DIGIT + DIGIT ; } WHILE ( ID > ID ) { IF ( ID > ID ) { ID = ID + DIGIT ; } ELSE { ID = ID + DIGIT ; } } ");
+	Parser P(" { TYPE ID = DIGIT ; WHILE ( ID REL_OPT DIGIT ) { ID = ID + DIGIT ; ID = ID - DIGIT ; } $");
 	// P.printcsv();
 	// string val = "r32"; 
 	// int num = stoi( string(val.begin()+1, val.end()));
