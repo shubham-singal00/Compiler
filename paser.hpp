@@ -160,7 +160,7 @@ public:
 			cout << loookahead << " " << toppostack << " " << next <<  endl;
 			// Read some mvoe[][] s() or r()
 			string next_move = movestuff[toppostack][next];
-			cout << next_move << endl; 
+			// cout << next_move << endl; 
 			next_move = removesapces(next_move);
 			// for(int i =0 ; i < next_move.length();i++)
 			// 	cout << int(next_move[i]) << " "; cout << endl;
@@ -183,7 +183,7 @@ public:
 			{
 				//Handle shift
 
-				cout <<" SSTIO " << string(next_move.begin()+1, next_move.end()) << endl;
+				// cout <<" SSTIO " << string(next_move.begin()+1, next_move.end()) << endl;
 
 				int num = stoi( string(next_move.begin()+1, next_move.end()));
 				//Shift is when consume input literal and then 
@@ -212,8 +212,8 @@ public:
 				}
 				auto newtop = STACKList.top() + 1;
 				string next_move = movestuff[newtop][nmtocol[used_rule.ff]];
-				cout << "STOIBOI " << endl; 
-				cout << stoi(movestuff[newtop][nmtocol[used_rule.ff]]) << endl;
+				// cout << "STOIBOI " << endl; 
+				// cout << stoi(movestuff[newtop][nmtocol[used_rule.ff]]) << endl;
 				if(next_move == "")
 				{
 					cout << endl << endl;

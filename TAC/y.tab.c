@@ -2744,7 +2744,7 @@ extern char *yytext;
 
 main() {
 	// open a file handle to a particular file:
-	FILE *myfile = fopen("input.txt", "r");
+	FILE *myfile = fopen("input3.txt", "r");
 	// make sure it is valid:
 	if (!myfile) {
 		//printf("File not found!");
