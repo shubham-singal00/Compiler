@@ -1,0 +1,3 @@
+lex TAC_GEN.l
+yacc -d TAC_GEN.y
+gcc y.tab.c lex.yy.c -lfl -o output

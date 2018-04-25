@@ -1,0 +1,10 @@
+int func(){ 
+ a= a+b; 
+} 
+
+int functwo(){ 
+b=b - c; 
+ if (a+b < c){ 
+ 	z=z - 3; 
+ } 
+} 

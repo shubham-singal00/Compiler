@@ -1,0 +1,5 @@
+int a(){ 
+while (b<10){ 
+	c=c- b*a+d- f/g%l; 
+} 
+} 

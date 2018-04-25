@@ -1,4 +1,3 @@
-startSym' -> startSym
 startSym -> funcs
 startSym -> program
 funcs -> funcs func
@@ -14,6 +13,7 @@ construct -> IF '(' bool ')' block ELSE block
 block -> '{' stmts '}'
 stmts -> stmt
 stmts -> stmts stmt
+stmts -> stmt error '\n'
 stmt -> ';'
 stmt -> expr ';'
 stmt -> dec ';'

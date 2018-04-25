@@ -155,7 +155,7 @@ namespace Scanner
 			return t;	
 		}
 
-
+		// cout << "Error token not found " << endl;
 		Token t("", "value",(*buf).line);
 		return t;
 	}

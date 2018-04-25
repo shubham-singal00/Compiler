@@ -36,6 +36,7 @@ class Buffer
 			if( c == '\n')
 			{
 				line++;
+				cout << line << endl;
 			}
 			return c;
 		}

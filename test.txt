@@ -1,7 +1,11 @@
-#include <iostream>
+--this is a test 
+int main() {  
+	while (i>5){ 
+	int k = 5 * 3 - 2 / 6 * 6 + ( 10 - 100 ) % 100 ; 
+	} 
 
-int main(){
-	int a = 10;
-	int b = 20;
-	return 0;
-}
+	if ( a > b ) { 
+		galtisemistake 	
+		int l = 1 ; 
+	}  
+} 

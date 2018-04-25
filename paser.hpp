@@ -131,7 +131,7 @@ public:
 		// 	cout << endl;		
 		// }
 	}
-	void startparsin(string toBeParsed)	
+	void startparsin(string &toBeParsed)	
 	{
 		prods P;
 		istringstream streamofinput(toBeParsed);
@@ -156,14 +156,14 @@ public:
 				STACKList.push(stoi(movestuff[toppostack][next]));
 				continue;
 			}
-			cout << "Mai tummhe chunta hu" << endl;
+			cout << " State chosen : " ;
 			cout << loookahead << " " << toppostack << " " << next <<  endl;
 			// Read some mvoe[][] s() or r()
 			string next_move = movestuff[toppostack][next];
 			cout << next_move << endl; 
 			next_move = removesapces(next_move);
-			for(int i =0 ; i < next_move.length();i++)
-				cout << int(next_move[i]) << " "; cout << endl;
+			// for(int i =0 ; i < next_move.length();i++)
+			// 	cout << int(next_move[i]) << " "; cout << endl;
 			if(next_move == "" || next_move == " ")
 			{
 				cout << endl << endl;
@@ -176,7 +176,7 @@ public:
 			}
 			if(next_move[0] == 'a')
 			{
-				cout << "YAY" << endl;
+				cout << "Accepted YAY :D" << endl;
 				return ;
 			}
 			if(next_move[0] == 's')
@@ -205,9 +205,10 @@ public:
 				cout << used_rule.ss.size() << endl;
 				cout << STACKList.size() << endl;cout << SymStack.size() << endl;
 				for(int i =0; i < used_rule.ss.size(); i++){
-				
-				STACKList.pop();	
-				SymStack.pop();
+					if(SymStack.size() == 0)
+						errormode();
+					STACKList.pop();	
+					SymStack.pop();
 				}
 				auto newtop = STACKList.top() + 1;
 				string next_move = movestuff[newtop][nmtocol[used_rule.ff]];
@@ -234,10 +235,12 @@ public:
 	bool errormode()
 	{
 		errorcount ++ ;
-		cout << "NOOOOOOOOO" ;
+		cout << "Error found " << endl;
+
 		// pop
 		if(SymStack.size() == 0) 
 			return false;
+		cout << "Aaage chalta hu, duao mei yaad rakhna " << endl;
 		STACKList.pop();
 		SymStack.pop();
 		return true;
