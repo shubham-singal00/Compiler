@@ -1,6 +1,6 @@
 # Compiler
 
-## Compiler for a costom programming language 
+## Compiler for a custom programming language 
 ---
 ## Installing and running the program
 
